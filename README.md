@@ -14,31 +14,43 @@ It displays real-time submission events such as:
 * 💥 Runtime Error
 * ⚠️ Compilation Error
 
+## Home
+
+* <https://github.com/erekleroinishvili/cf-overlay>
+
 ## Demo
 
-* <https://erekleroinishvili.github.io/cf-overlay/>
-* <https://erekle.uk/cf-overlay/>
+* <https://erekleroinishvili.github.io/cf-overlay/demo.html>
+* <https://erekle.uk/cf-overlay/demo.html>
 
-**Note:** For demo and testing, follow the [How to Use](#how-to-use) steps, but use a regular browser instead of a Browser Source in your streaming software.
+**Note:** See [Testing](#testing) for more info.
 
 ## Contents
 
 * [Descriptioin](#description)
 * [Disclaimer](#disclaimer)
 * [How to Use](#how-to-use)
+* [Changing User](#changing-user)
+* [Testing](testing)
 * [Development](#-development)
 * [Notes](#notes)
 * [License](#license)
 
 ## Disclaimer
 
-Not affiliated with Codeforces. Use at your own risk.
+<details>
+   <summary>Show disclaimer</summary>
 
-This project is not affiliated with or endorsed by Codeforces.
+   Not affiliated with Codeforces. Use at your own risk.
 
-This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+   This project is not affiliated with or endorsed by Codeforces.
 
-In no event shall the authors be liable for any claim, damages, or other liability arising from the use of this software.
+   The project depends on undocumented features of Codeforces and may become unavailable or stop functioning without warning.
+
+   This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+   In no event shall the authors be liable for any claim, damages, or other liability arising from the use of this software.
+</details>
 
 ## How to Use
 
@@ -71,7 +83,7 @@ Do NOT share this address with anyone.
 
 When you first open the overlay, you will see an input field.
 
-Enter your WebSocket URL and press **Go**.
+Enter your WebSocket URL and press **Go**. The URL will be stored in the browsers `Local Storage` and will be made available automatically next time.
 
 ### 4. Entering input inside streaming software
 
@@ -88,6 +100,74 @@ If you're using OBS Studio, you have two options:
 * Open **Docks → Custom Browser Docks**
 * Load the overlay page
 * Enter the URL there
+
+## Changing User
+
+The WebSocket URL is what connects the overlay to your Codeforces session. This URL is stored in your browser’s `localStorage`.
+
+To switch to a different user, you need to remove this stored value.
+
+### Steps to Remove the Stored WebSocket URL
+
+1. Open your browser’s **DevTools**
+2. Go to the **Application** tab  
+3. Expand **Local Storage** in the sidebar  
+4. Select the current site (URL will be listed)  
+5. Find the stored WebSocket entry  
+6. Right-click it and select **Delete**
+
+After refreshing the page, you will be prompted to enter a new WebSocket URL.
+
+## Testing
+
+### Testing with Codeforces (Recommended)
+
+The most reliable way to test the overlay is in a real-life scenario by submitting problems on Codeforces and observing the overlay inside your streaming software.
+
+See [How to Use](#how-to-use) for setup instructions.
+
+You can also open the overlay in a regular browser, but note that its behavior may differ from a streaming software browser source. In particular, audio playback may be blocked until the user interacts with the page.
+
+### Testing without Codeforces (Simulation)
+
+This method is intended for demonstration rather than full testing. It does not connect to Codeforces or verify the actual WebSocket connection. Instead, it allows you to manually trigger events and observe how the overlay responds.
+
+There are two ways to simulate events:
+
+1. [Split-Screen](#split-screen-simulation) — simple setup  
+2. [Separate Browser Tabs](#separate-browser-tabs-simulation) — more realistic  
+
+#### Split-Screen Simulation
+
+Open the split-screen demo:
+
+* <https://erekleroinishvili.github.io/cf-overlay/demo.html>  
+* <https://erekle.uk/cf-overlay/demo.html>  
+
+Use the buttons to trigger events and observe the overlay behavior.
+
+#### Separate Browser Tabs Simulation
+
+Open both the **Overlay** and the **Trigger Demon** (a page with buttons that simulate events).
+
+⚠️ Both pages must be:
+
+* opened from the same domain
+* in the same browser (e.g. Chrome)
+
+You can open multiple instances of either page — they will communicate with each other.
+
+* [Overlay](https://erekleroinishvili.github.io/cf-overlay/) ↔
+  [Trigger Demon](https://erekleroinishvili.github.io/cf-overlay/demon.html)
+* [Overlay](https://erekle.uk/cf-overlay/) ↔
+  [Trigger Demon](https://erekle.uk/cf-overlay/demon.html)
+
+### 🔊 Audio Note
+
+Browsers may block audio playback until the user interacts with the page.
+
+* In a browser: click anywhere in the overlay tab  
+* In streaming software: interaction may require using the browser source “Interact” feature  
 
 ## 🛠 Development
 
