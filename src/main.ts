@@ -1,2 +1,2 @@
 import './session'; // Manages connections
-// import './test-ui'; // Optional - for testing only
+import './demo-listen'; // Listen to demos

@@ -1,4 +1,4 @@
-import { CanvasStatus } from "./cf-socket.interface";
+import { MessageType } from "./cf-socket.interface";
 import { MaxAnimationDuration } from "./settings";
 import { addError, clearErrors } from "./error";
 import { playSound, Sound } from "./sounds";
@@ -30,7 +30,7 @@ function clearAllCssClasses(element: HTMLElement) {
     element.offsetWidth; // Force reflow to reset animation state
 }
 
-export function setCanvasToState(status: CanvasStatus, verdictText = '', sound: Sound | null) {
+export function setCanvasToState(status: MessageType, verdictText = '', sound: Sound | null) {
     cleanUpAfterAnimation();
     clearErrors();
     const cssClasses = getCanvasClassesForState(status);
@@ -42,9 +42,9 @@ export function setCanvasToState(status: CanvasStatus, verdictText = '', sound: 
     canvasClearSchedule = setTimeout(cleanUpAfterAnimation, MaxAnimationDuration);
 }
 
-function getCanvasClassesForState(status: CanvasStatus): string[] {
-    const socketStates: CanvasStatus[] = ["SOCKET_OPENED", "SOCKET_ERROR", "SOCKET_CLOSED"];
-    const problemStates: CanvasStatus[] = ["SOCKET_ERROR", "SOCKET_CLOSED", "WRONG_ANSWER", "COMPILATION_ERROR", "TIME_LIMIT_EXCEEDED", "MEMORY_LIMIT_EXCEEDED", "RUNTIME_ERROR", "CHALLENGED", "SKIPPED", "REJECTED"];
+function getCanvasClassesForState(status: MessageType): string[] {
+    const socketStates: MessageType[] = ["SOCKET_OPENED", "SOCKET_ERROR", "SOCKET_CLOSED"];
+    const problemStates: MessageType[] = ["SOCKET_ERROR", "SOCKET_CLOSED", "WRONG_ANSWER", "COMPILATION_ERROR", "TIME_LIMIT_EXCEEDED", "MEMORY_LIMIT_EXCEEDED", "RUNTIME_ERROR", "CHALLENGED", "SKIPPED", "REJECTED"];
     const cssClasses: string[] = [status];
     if (status === 'UNKNOWN') {
         cssClasses.unshift('UNKNOWN');

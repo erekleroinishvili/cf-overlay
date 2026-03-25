@@ -1,0 +1,8 @@
+#buttons-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    row-gap: 8px;
+    gap: 8px;
+}

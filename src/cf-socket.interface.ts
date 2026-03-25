@@ -25,7 +25,7 @@ export interface CFMessage {
 }
 
 export type CFVerdict = "OK" | "WRONG_ANSWER" | "COMPILATION_ERROR" | "TIME_LIMIT_EXCEEDED" | "MEMORY_LIMIT_EXCEEDED" | "RUNTIME_ERROR" | "CHALLENGED" | "SKIPPED" | "TESTING" | "REJECTED" | "OTHER";
-export type CanvasStatus = CFVerdict | "SOCKET_OPENED" | "SOCKET_ERROR" | "SOCKET_CLOSED" | "UNKNOWN";
+export type MessageType = CFVerdict | "SOCKET_OPENED" | "SOCKET_ERROR" | "SOCKET_CLOSED" | "UNKNOWN";
 
 /** CodeForces socket message, but deserialized `JSON.parse(), new Date()` at multiple nested levels */
 export interface CFSocketMessage {
