@@ -1,0 +1,302 @@
+:root {
+  --animation-duration: 3s;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: transparent;
+  color: #222;
+}
+
+#config-form {
+  display: block;
+  padding: 4px;
+  position: fixed;
+  z-index: 1000;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 24px;
+  border-radius: 10%;
+  border: 5px solid transparent;
+  padding: 8px;
+}
+
+#error {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #800000;
+  padding: 8px;
+  border-radius: 20%;
+
+  &:not(:empty) {
+    border: 5px solid #800000;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+#verdict {
+  font-size: clamp(12px, 5cqw, 48px);
+}
+
+#cf-logo {
+  display: block;
+}
+
+#canvas.PROBLEM {
+  border-color: #800000;
+  color: #800000;
+}
+
+#canvas.SUCCESS {
+  border-color: #023102;
+  color: #023102;
+}
+
+#canvas.UNKNOWN {
+  border-color: #363636;
+}
+
+#canvas.PROBLEM {
+  animation: slideInOut var(--animation-duration) ease forwards;
+
+  #verdict {
+    animation: pulse 1s ease-in-out infinite alternate;
+  }
+
+  #cf-logo {
+    animation: bounceSquish 2s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  #socket-disconnected {
+    animation: packetNudge 0.35s ease-out infinite;
+  }
+}
+
+/* Begin: Animations */
+#canvas.SUCCESS {
+  animation: slideInOut var(--animation-duration) ease forwards;
+
+  #verdict {
+    animation: pulse 1s ease-in-out infinite alternate;
+  }
+
+  #cf-logo {
+    animation: bounceSquish 2s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  #socket-disconnected {
+    animation: packetNudge 0.35s ease-out infinite;
+  }
+
+  #socket-connected {
+    animation: shake 0.35s ease-out infinite;
+  }
+}
+
+#canvas.UNKNOWN {
+  animation: slideInOut var(--animation-duration) ease forwards;
+
+  #verdict {
+    animation: pulse 1s ease-in-out infinite alternate;
+  }
+
+  #cf-logo {
+    animation: bounceSquish 2s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  #socket-disconnected {
+    animation: packetNudge 0.35s ease-out infinite;
+  }
+}
+
+/* End: Animations */
+
+/* Begin: Hide images when not in use */
+#canvas:not(.CF) #cf-logo {
+  display: none;
+}
+
+#canvas:not(.SOCKET.PROBLEM) #socket-disconnected {
+  display: none;
+}
+
+#canvas:not(.SOCKET.SUCCESS) #socket-connected {
+  display: none;
+}
+
+/* End: Hide images when not in use */
+
+#logo {
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+
+  img {
+    max-height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+#canvas {
+
+  /* Socket states */
+  &.SOCKET_OPENED {
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+
+  &.SOCKET_CLOSED {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+  &.SOCKET_ERROR {
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+
+  /* CodeForces problem submission states */
+  &.OK {
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+
+  &.WRONG_ANSWER {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+  &.COMPILATION_ERROR {
+    background-color: rgba(255, 255, 0, 0.5);
+  }
+
+  &.TIME_LIMIT_EXCEEDED {
+    background-color: rgba(255, 165, 0, 0.5);
+  }
+
+  /* Unknown state */
+  &.UNKNOWN {
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+}
+
+@keyframes slideInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceSquish {
+  0% {
+    transform: translateY(0) scale(1, 1);
+  }
+
+  20% {
+    transform: translateY(-12px) scale(1, 1);
+    /* going up */
+  }
+
+  40% {
+    transform: translateY(0) scale(1.1, 0.85);
+    /* squish on impact */
+  }
+
+  50% {
+    transform: translateY(-6px) scale(0.97, 1.05);
+    /* rebound stretch */
+  }
+
+  70% {
+    transform: translateY(0) scale(1.05, 0.9);
+    /* smaller squish */
+  }
+
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+@keyframes packetNudge {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-4px);
+  }
+
+  40% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-3px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+}

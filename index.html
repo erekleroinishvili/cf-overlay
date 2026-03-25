@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeForces Overlay</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Do not apply CSS classes to `cavnas` - will be removed by and a single state class will be applied -->
+    <div id="canvas" class="SOCKET DISCONNECTED">
+      <div id="logo">
+        <img id="cf-logo" src="/images/cf-logo-fire.png">
+        <img id="socket-disconnected" src="/images/socket-disconnected.png">
+        <img id="socket-connected" src="/images/socket-connected.png">
+      </div>
+      <div id="verdict">This is a verdict</div>
+    </div>
+
+    <div id="error"></div>
+
+    <form id="config-form">
+      <input type="password" id="cf-socket-uri" placeholder="CodeForces Socket URI">
+      <button type="button" id="cf-connect-button">Go</button>
+    </form>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
