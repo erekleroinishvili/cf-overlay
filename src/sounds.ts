@@ -1,9 +1,9 @@
-const fanfare = new Audio("/sounds/fanfare.mp3");
-const error = new Audio("/sounds/error.mp3");
-const failure = new Audio("/sounds/failure.mp3");
-const unknown = new Audio("/sounds/eeh.mp3");
-const start = new Audio("/sounds/start.mp3");
-const stop = new Audio("/sounds/stop.mp3");
+const fanfare = new Audio("./sounds/fanfare.mp3");
+const error = new Audio("./sounds/error.mp3");
+const failure = new Audio("./sounds/failure.mp3");
+const unknown = new Audio("./sounds/eeh.mp3");
+const start = new Audio("./sounds/start.mp3");
+const stop = new Audio("./sounds/stop.mp3");
 
 const allAudioElements = [fanfare, error, failure, unknown, start, stop];
 allAudioElements.forEach((audio, index) => {
