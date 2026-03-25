@@ -27,11 +27,7 @@ function createButton(label: string, clickHandler: () => void, buttonType: Butto
 
 const crossTab = new TabChannel(CrossTabChannelName);
 
-const buttons = [
-    createButton('🟢 Socket Opened', () => crossTab.send({ type: 'SOCKET_OPENED' }), 'success'),
-    createButton('❌ Socket Error', () => crossTab.send({ type: 'SOCKET_ERROR' }), 'danger'),
-    createButton('🔒 Socket Closed', () => crossTab.send({ type: 'SOCKET_CLOSED' }), 'warning'),
-    createButton('❓ Unknown State', () => crossTab.send({ type: 'UNKNOWN' }), 'info'),
+const cfButtons = [
     createButton('✔ Accepted', () => crossTab.send({ type: 'OK' }), 'success'),
     createButton('✖ Wrong Answer', () => crossTab.send({ type: 'WRONG_ANSWER' }), 'danger'),
     createButton('🛠 Compilation Error', () => crossTab.send({ type: 'COMPILATION_ERROR' }), 'danger'),
@@ -45,5 +41,12 @@ const buttons = [
     createButton('❔ Other', () => crossTab.send({ type: 'OTHER' }), 'dark'),
 ];
 
-const div = getDomElement('buttons-box');
-div.append(...buttons);
+const socketButtons = [
+    createButton('🟢 Socket Opened', () => crossTab.send({ type: 'SOCKET_OPENED' }), 'success'),
+    createButton('❌ Socket Error', () => crossTab.send({ type: 'SOCKET_ERROR' }), 'danger'),
+    createButton('🔒 Socket Closed', () => crossTab.send({ type: 'SOCKET_CLOSED' }), 'warning'),
+    createButton('❓ Unknown State', () => crossTab.send({ type: 'UNKNOWN' }), 'info'),
+];
+
+getDomElement('codeforces-demo-buttons').append(...cfButtons);
+getDomElement('socket-demo-buttons').append(...socketButtons);

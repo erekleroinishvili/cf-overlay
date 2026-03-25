@@ -4,16 +4,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeForces Overlay</title>
+  <title>CodeForces Overlay | Demo</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./demo.css" />
 </head>
 
-<body>
-  <h1>Demo</h1>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-3">CF-Overlay | Demo</h1>
+    <p class="text-muted mb-4">
+      Trigger different Codeforces events using the controls below.
+    </p>
 
+    <p><a href="https://github.com/erekleroinishvili/cf-overlay/">Home</a></p>
 
-  <div id="buttons-box"></div>
+    <div class="row g-4">
+
+      <!-- Group 1 -->
+      <div class="col-md-4">
+        <div class="card p-3 h-100">
+          <h5 class="mb-3">Codeforces Events</h5>
+          <div class="d-flex flex-wrap gap-2" id="codeforces-demo-buttons">
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 2 -->
+      <div class="col-md-4">
+        <div class="card p-3 h-100">
+          <h5 class="mb-3">Socket Events</h5>
+          <div class="d-flex flex-wrap gap-2" id="socket-demo-buttons">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script type="module" src="./src/demo.ts"></script>
 </body>
