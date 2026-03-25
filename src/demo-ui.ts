@@ -38,14 +38,14 @@ const cfButtons = [
     createButton('⏭ Skipped', () => crossTab.send({ type: 'SKIPPED' }), 'info'),
     createButton('🧪 Testing', () => crossTab.send({ type: 'TESTING' }), 'info'),
     createButton('🚫 Rejected', () => crossTab.send({ type: 'REJECTED' }), 'info'),
-    createButton('❔ Other', () => crossTab.send({ type: 'OTHER' }), 'dark'),
+    createButton('❔ Other', () => crossTab.send({ type: 'OTHER' }), 'light'),
 ];
 
 const socketButtons = [
     createButton('🟢 Socket Opened', () => crossTab.send({ type: 'SOCKET_OPENED' }), 'success'),
     createButton('❌ Socket Error', () => crossTab.send({ type: 'SOCKET_ERROR' }), 'danger'),
     createButton('🔒 Socket Closed', () => crossTab.send({ type: 'SOCKET_CLOSED' }), 'warning'),
-    createButton('❓ Unknown State', () => crossTab.send({ type: 'UNKNOWN' }), 'info'),
+    createButton('❓ Unknown State', () => crossTab.send({ type: 'UNKNOWN' }), 'light'),
 ];
 
 getDomElement('codeforces-demo-buttons').append(...cfButtons);
