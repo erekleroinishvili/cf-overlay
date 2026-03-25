@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CF-Overlay Split View</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background: #f5f6f8;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Top panel wrapper */
+        .top-wrapper {
+            padding: 8px;
+            background: #f5f6f8;
+            box-sizing: border-box;
+        }
+
+        /* Top iframe */
+        .top {
+            height: 100px;
+            /* border-radius: 6px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); */
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: #ddd;
+            margin: 0 8px;
+        }
+
+        /* Bottom iframe */
+        .bottom {
+            flex: 1;
+            margin: 8px;
+            border-radius: 6px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            width: calc(100% - 16px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Top iframe -->
+        <div class="top-wrapper">
+            <iframe class="top" src="./index.html"></iframe>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Bottom iframe -->
+        <iframe class="bottom" src="./demon.html"></iframe>
+
+    </div>
+
+</body>
+
+</html>
