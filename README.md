@@ -14,7 +14,12 @@ It displays real-time submission events such as:
 * 💥 Runtime Error
 * ⚠️ Compilation Error
 
-Perfect for live coding streams, contests, or educational content.
+## Demo
+
+* <https://erekleroinishvili.github.io/cf-overlay/>
+* <https://erekle.uk/cf-overlay/>
+
+**Note:** For demo and testing, follow the [How to Use](#how-to-use) steps, but use a regular browser instead of a Browser Source in your streaming software.
 
 ## Contents
 
@@ -39,9 +44,10 @@ In no event shall the authors be liable for any claim, damages, or other liabili
 
 ### 1. Add overlay to your streaming software
 
-Add a **Browser Source** with the following URL:
+Add a **Browser Source** with one of the following URLs:
 
-<https://erekleroinishvili.github.io/cf-overlay/>
+* <https://erekleroinishvili.github.io/cf-overlay/>
+* <https://erekle.uk/cf-overlay/>
 
 ### 2. Obtain your Codeforces WebSocket address
 
@@ -109,7 +115,7 @@ npm run build
 
 * The overlay runs entirely in the browser
 * Works with any streaming software supporting browser sources
-* Uses real-time WebSocket events from Codeforces
+* Uses undocumented real-time WebSocket events from Codeforces
 * Designed to be lightweight and low-latency
 
 ## License

@@ -71,6 +71,7 @@ body {
   border-color: #363636;
 }
 
+/* Begin: Animations */
 #canvas.PROBLEM {
   animation: slideInOut var(--animation-duration) ease forwards;
 
@@ -88,7 +89,6 @@ body {
   }
 }
 
-/* Begin: Animations */
 #canvas.SUCCESS {
   animation: slideInOut var(--animation-duration) ease forwards;
 
@@ -177,7 +177,9 @@ body {
     background-color: rgba(0, 255, 0, 0.5);
   }
 
-  &.WRONG_ANSWER {
+  &.WRONG_ANSWER,
+  &.TIME_LIMIT_EXCEEDED,
+  &.MEMORY_LIMIT_EXCEEDED {
     background-color: rgba(255, 0, 0, 0.5);
   }
 
@@ -185,7 +187,7 @@ body {
     background-color: rgba(255, 255, 0, 0.5);
   }
 
-  &.TIME_LIMIT_EXCEEDED {
+  &.RUNTIME_ERROR {
     background-color: rgba(255, 165, 0, 0.5);
   }
 
