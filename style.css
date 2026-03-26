@@ -1,6 +1,7 @@
 :root {
   --animation-duration: 3s;
   --border-radius: 8px;
+  --bg-opacity: 0.8;
 }
 
 body {
@@ -60,16 +61,38 @@ body {
 
 #canvas.PROBLEM {
   border-color: #800000;
-  color: #800000;
+  color: #FEF2F2;
+  text-shadow:
+    2px 2px 4px #000,
+    -2px 2px 4px #000,
+    2px -2px 4px #000,
+    -2px -2px 4px #000;
+  background: linear-gradient(rgba(200, 0, 0, 0.40), rgba(239, 68, 68, 0.40)),
+    rgba(0, 0, 0, 0.65);
 }
 
 #canvas.SUCCESS {
-  border-color: #023102;
-  color: #023102;
+  border-color: rgba(34, 197, 94, 0.75);
+  color: #ECFDF5;
+  text-shadow:
+    2px 2px 4px #000,
+    -2px 2px 4px #000,
+    2px -2px 4px #000,
+    -2px -2px 4px #000;
+  background: linear-gradient(rgba(34, 197, 94, 0.48), rgba(34, 197, 94, 0.48)),
+    rgba(0, 0, 0, 0.65);
 }
 
 #canvas.UNKNOWN {
   border-color: #363636;
+  color: white;
+  text-shadow:
+    2px 2px 4px #000,
+    -2px 2px 4px #000,
+    2px -2px 4px #000,
+    -2px -2px 4px #000;
+  background: linear-gradient(rgba(59, 130, 246, 0.16), rgba(59, 130, 246, 0.16)),
+    rgba(0, 0, 0, 0.65);
 }
 
 /* Begin: Animations */
@@ -162,39 +185,39 @@ body {
 
   /* Socket states */
   &.SOCKET_OPENED {
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, var(--bg-opacity));
   }
 
   &.SOCKET_CLOSED {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, var(--bg-opacity));
   }
 
   &.SOCKET_ERROR {
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, var(--bg-opacity));
   }
 
   /* CodeForces problem submission states */
   &.OK {
-    background-color: rgba(0, 255, 0, 0.5);
+    /* background-color: rgba(0, 255, 0, var(--bg-opacity)); */
   }
 
   &.WRONG_ANSWER,
   &.TIME_LIMIT_EXCEEDED,
   &.MEMORY_LIMIT_EXCEEDED {
-    background-color: rgba(255, 0, 0, 0.5);
+    /* background-color: rgba(255, 0, 0, var(--bg-opacity)); */
   }
 
   &.COMPILATION_ERROR {
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: rgba(255, 255, 0, var(--bg-opacity));
   }
 
   &.RUNTIME_ERROR {
-    background-color: rgba(255, 165, 0, 0.5);
+    background-color: rgba(255, 165, 0, var(--bg-opacity));
   }
 
   /* Unknown state */
   &.UNKNOWN {
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, var(--bg-opacity));
   }
 }
 
