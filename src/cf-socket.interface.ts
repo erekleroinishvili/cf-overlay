@@ -59,7 +59,7 @@ export type CFSocketMessageTextData<DateFormat extends CFDateTimeString | Date =
     // Judging state
     "TESTS" | "PRETESTS", // Phase
     null, // ?
-    "OK" | "WRONG_ANSWER" | "COMPILATION_ERROR" | "TIME_LIMIT_EXCEEDED",  // Verdict
+    CFVerdict,  // Verdict
 
     // Test progress
     number, // Number of tests passed tests
